@@ -61,7 +61,7 @@ const AdminDashboard = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'delivered': return 'bg-green-100 text-green-800';
-      case 'out_for_delivery': return 'bg-blue-100 text-blue-800';
+      case 'out_for_delivery': return 'bg-orange-100 text-orange-800';
       case 'in_transit': return 'bg-yellow-100 text-yellow-800';
       case 'pending': return 'bg-gray-100 text-gray-800';
       default: return 'bg-gray-100 text-gray-800';
@@ -85,14 +85,14 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-slate-800 text-white shadow-lg">
+      <header className="bg-black text-white shadow-lg">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Package className="h-8 w-8 text-blue-400" />
+              <Package className="h-8 w-8 text-orange-500" />
               <h1 className="text-2xl font-bold">Trace360 Admin</h1>
             </div>
-            <Button variant="outline" className="text-white border-white hover:bg-white hover:text-slate-800">
+            <Button variant="outline" className="text-white border-white hover:bg-white hover:text-black">
               Logout
             </Button>
           </div>
@@ -102,52 +102,52 @@ const AdminDashboard = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-white rounded-lg shadow-md p-6 border-2 border-orange-100">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Packages</p>
-                <p className="text-3xl font-bold text-gray-900">{stats.totalPackages}</p>
+                <p className="text-3xl font-bold text-black">{stats.totalPackages}</p>
               </div>
-              <Package className="h-8 w-8 text-blue-600" />
+              <Package className="h-8 w-8 text-orange-600" />
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-white rounded-lg shadow-md p-6 border-2 border-orange-100">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">In Transit</p>
-                <p className="text-3xl font-bold text-gray-900">{stats.inTransit}</p>
+                <p className="text-3xl font-bold text-black">{stats.inTransit}</p>
               </div>
               <MapPin className="h-8 w-8 text-yellow-600" />
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-white rounded-lg shadow-md p-6 border-2 border-orange-100">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Delivered</p>
-                <p className="text-3xl font-bold text-gray-900">{stats.delivered}</p>
+                <p className="text-3xl font-bold text-black">{stats.delivered}</p>
               </div>
               <TrendingUp className="h-8 w-8 text-green-600" />
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-white rounded-lg shadow-md p-6 border-2 border-orange-100">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Active Agents</p>
-                <p className="text-3xl font-bold text-gray-900">{stats.activeAgents}</p>
+                <p className="text-3xl font-bold text-black">{stats.activeAgents}</p>
               </div>
-              <Users className="h-8 w-8 text-purple-600" />
+              <Users className="h-8 w-8 text-orange-600" />
             </div>
           </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Package List */}
-          <div className="bg-white rounded-lg shadow-md">
+          <div className="bg-white rounded-lg shadow-md border-2 border-orange-100">
             <div className="p-6 border-b">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">Package Management</h2>
+              <h2 className="text-xl font-bold text-black mb-4">Package Management</h2>
               
               {/* Filters */}
               <div className="flex space-x-4 mb-4">
@@ -161,7 +161,7 @@ const AdminDashboard = () => {
                 <select
                   value={selectedStatus}
                   onChange={(e) => setSelectedStatus(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-md"
+                  className="px-3 py-2 border border-gray-300 rounded-md focus:border-orange-500"
                 >
                   <option value="all">All Status</option>
                   <option value="pending">Pending</option>
@@ -174,11 +174,11 @@ const AdminDashboard = () => {
 
             <div className="max-h-96 overflow-y-auto">
               {filteredPackages.map((pkg) => (
-                <div key={pkg.id} className="p-4 border-b hover:bg-gray-50">
+                <div key={pkg.id} className="p-4 border-b hover:bg-orange-50">
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-2">
-                        <p className="font-semibold text-gray-800">#{pkg.trackingNumber}</p>
+                        <p className="font-semibold text-black">#{pkg.trackingNumber}</p>
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(pkg.status)}`}>
                           {pkg.status.replace('_', ' ').toUpperCase()}
                         </span>
@@ -193,7 +193,7 @@ const AdminDashboard = () => {
                         <strong>ETA:</strong> {pkg.eta}
                       </p>
                     </div>
-                    <Button size="sm" variant="outline">
+                    <Button size="sm" variant="outline" className="border-orange-300 hover:bg-orange-50">
                       <Eye className="h-4 w-4" />
                     </Button>
                   </div>
@@ -203,8 +203,8 @@ const AdminDashboard = () => {
           </div>
 
           {/* Live Map */}
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Live Agent Locations</h2>
+          <div className="bg-white rounded-lg shadow-md p-6 border-2 border-orange-100">
+            <h2 className="text-xl font-bold text-black mb-4">Live Agent Locations</h2>
             <AdminMap packages={packages} />
           </div>
         </div>

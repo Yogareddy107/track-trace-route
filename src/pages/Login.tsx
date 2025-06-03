@@ -28,21 +28,21 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50 flex items-center justify-center">
       <div className="max-w-md w-full mx-4">
-        <div className="bg-white rounded-lg shadow-xl p-8">
+        <div className="bg-white rounded-lg shadow-xl p-8 border-2 border-orange-100">
           {/* Logo */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center space-x-2 mb-4">
-              <Package className="h-8 w-8 text-blue-600" />
-              <h1 className="text-2xl font-bold text-slate-800">Trace360</h1>
+              <Package className="h-8 w-8 text-orange-600" />
+              <h1 className="text-2xl font-bold text-black">Trace360</h1>
             </div>
-            <p className="text-slate-600">Sign in to your account</p>
+            <p className="text-gray-600">Sign in to your account</p>
           </div>
 
           {/* User Type Selection */}
           <div className="mb-6">
-            <Label className="text-sm font-medium text-slate-700 mb-3 block">
+            <Label className="text-sm font-medium text-black mb-3 block">
               Login as:
             </Label>
             <div className="grid grid-cols-3 gap-2">
@@ -50,7 +50,7 @@ const Login = () => {
                 onClick={() => setUserType('user')}
                 className={`p-3 rounded-lg border text-center transition-colors ${
                   userType === 'user'
-                    ? 'bg-blue-50 border-blue-200 text-blue-700'
+                    ? 'bg-orange-50 border-orange-200 text-orange-700'
                     : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
                 }`}
               >
@@ -61,7 +61,7 @@ const Login = () => {
                 onClick={() => setUserType('admin')}
                 className={`p-3 rounded-lg border text-center transition-colors ${
                   userType === 'admin'
-                    ? 'bg-blue-50 border-blue-200 text-blue-700'
+                    ? 'bg-orange-50 border-orange-200 text-orange-700'
                     : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
                 }`}
               >
@@ -72,7 +72,7 @@ const Login = () => {
                 onClick={() => setUserType('agent')}
                 className={`p-3 rounded-lg border text-center transition-colors ${
                   userType === 'agent'
-                    ? 'bg-blue-50 border-blue-200 text-blue-700'
+                    ? 'bg-orange-50 border-orange-200 text-orange-700'
                     : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
                 }`}
               >
@@ -106,14 +106,14 @@ const Login = () => {
               />
             </div>
 
-            <Button onClick={handleLogin} className="w-full bg-blue-600 hover:bg-blue-700">
+            <Button onClick={handleLogin} className="w-full bg-orange-600 hover:bg-orange-700">
               Sign In
             </Button>
           </div>
 
           {/* Demo Credentials */}
-          <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-            <p className="text-sm font-medium text-gray-700 mb-2">Demo Credentials:</p>
+          <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-orange-100">
+            <p className="text-sm font-medium text-black mb-2">Demo Credentials:</p>
             <div className="text-xs text-gray-600 space-y-1">
               <p><strong>Admin:</strong> admin@trace360.com / admin123</p>
               <p><strong>Agent:</strong> agent@trace360.com / agent123</p>
@@ -122,7 +122,7 @@ const Login = () => {
           </div>
 
           <div className="mt-6 text-center">
-            <Link to="/" className="text-blue-600 hover:text-blue-700 text-sm">
+            <Link to="/" className="text-orange-600 hover:text-orange-700 text-sm">
               ← Back to Home
             </Link>
           </div>

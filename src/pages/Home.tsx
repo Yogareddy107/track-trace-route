@@ -27,9 +27,6 @@ const Home = () => {
             <Link to="/login" className="hover:text-orange-500 transition-colors">
               Login
             </Link>
-            <Link to="/admin" className="hover:text-orange-500 transition-colors">
-              Admin
-            </Link>
           </nav>
         </div>
       </header>

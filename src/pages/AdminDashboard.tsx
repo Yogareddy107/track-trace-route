@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Package, Users, MapPin, TrendingUp, Search, Eye } from "lucide-react";
+import { Package, Users, MapPin, TrendingUp, Search, Eye, LogOut, ArrowLeft } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 import AdminMap from '../components/AdminMap';
 
 interface PackageData {
@@ -17,6 +18,7 @@ interface PackageData {
 }
 
 const AdminDashboard = () => {
+  const navigate = useNavigate();
   const [packages, setPackages] = useState<PackageData[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('all');
@@ -82,6 +84,14 @@ const AdminDashboard = () => {
     activeAgents: new Set(packages.map(p => p.agent)).size
   };
 
+  const handleBackToHome = () => {
+    navigate('/');
+  };
+
+  const handleLogout = () => {
+    navigate('/login');
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -92,9 +102,26 @@ const AdminDashboard = () => {
               <Package className="h-8 w-8 text-orange-500" />
               <h1 className="text-2xl font-bold">Trace360 Admin</h1>
             </div>
-            <Button variant="outline" className="text-white border-white hover:bg-white hover:text-black">
-              Logout
-            </Button>
+            <div className="flex items-center space-x-3">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleBackToHome}
+                className="text-white border-white hover:bg-white hover:text-black"
+              >
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Home
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleLogout}
+                className="text-white border-white hover:bg-white hover:text-black"
+              >
+                <LogOut className="h-4 w-4 mr-2" />
+                Logout
+              </Button>
+            </div>
           </div>
         </div>
       </header>

@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import TrackPackage from "./pages/TrackPackage";
 import AdminDashboard from "./pages/AdminDashboard";
 import AgentDashboard from "./pages/AgentDashboard";
+import UserDashboard from "./pages/UserDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
